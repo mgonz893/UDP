@@ -5,8 +5,8 @@ serverName = 'localhost'
 serverPort = 12001
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((serverName, serverPort))
-message = raw_input('Input lowercase sentence: ')
-clientSocket.send(message)
+message = input('Input lowercase sentence: ')
+clientSocket.send(message.encode())
 modifiedMessage = clientSocket.recv(2048)
-print 'From Server: ', modifiedMessage
+print('From Server: ', modifiedMessage)
 clientSocket.close()
